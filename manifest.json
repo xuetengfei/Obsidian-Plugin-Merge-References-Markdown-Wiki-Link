@@ -1,0 +1,11 @@
+{
+  "id": "merge-references-markdown-note",
+  "name": "merge-references-markdown-note",
+  "description": "merge references markdown note",
+  "author": "xuetengfei",
+  "authorUrl": "https://github.com/your-profile",
+  "main": "main.js",
+  "minAppVersion": "0.15.0",
+  "version": "1.0.2"
+}
+

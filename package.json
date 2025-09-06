@@ -1,0 +1,22 @@
+{
+  "name": "merge-references-markdown-note",
+  "version": "1.0.0",
+  "description": "Obsidian Merge References markdown Plugin",
+  "main": "main.js",
+  "scripts": {
+    "dev": "pnpm exec rollup -c --watch",
+    "build": "pnpm exec rollup -c"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@types/node": "^24.3.0",
+    "obsidian": "latest",
+    "rollup": "^2.75.7",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "trash": "^9.0.0"
+  }
+}

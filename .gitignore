@@ -1,0 +1,12 @@
+node_modules
+.DS_Store
+dist
+*.js.map
+node_modules
+.DS_Store
+dist
+*.js.map
+scripts
+scripts/*
+# for test
+copy-to-obsidian.sh
