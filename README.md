@@ -1,3 +1,107 @@
+# 英文版本
+
+## Merge MD by Wiki Link
+
+**An Obsidian plugin to recursively merge the content of Wiki links in Markdown
+files into the current file.**
+
+---
+
+## 🔹 Core Features
+
+1. **Recursive Merge of Wiki Links**
+
+   - Automatically scans the active Markdown file for `[[Wiki]]` links.
+   - Inserts the content of linked files directly into the current file.
+   - Supports multi-level nested links, merging referenced files recursively.
+
+2. **Clean Up Wiki Links**
+
+   - Automatically removes `[[Wiki]]` links after merging.
+   - Regular Markdown links `[text](...)` remain intact.
+
+3. **Cycle Detection**
+
+   - Detects and prevents infinite loops caused by circular references.
+
+4. **Optional Deletion of Merged Files**
+
+   - Users can choose to move merged source files to trash after merging.
+   - Current file and MD5-named attachments are excluded from deletion.
+
+5. **Customizable Merge Separator**
+
+   - Insert a configurable separator before and after each merged content block
+     for clarity.
+   - Default separator is:
+
+   ```
+   ---
+   ```
+
+---
+
+## 🔹 Usage
+
+1. **Install the Plugin**
+
+   - Place the plugin in Obsidian's `plugins` directory.
+   - Enable the plugin in Obsidian settings.
+
+2. **Open the Target Markdown File**
+
+   - Open the file where you want to merge Wiki links.
+
+3. **Run the Merge Command**
+
+   - Open the command palette (Ctrl/Cmd + P), search for **"Merge Wiki Links"**,
+     and execute it.
+   - The plugin will recursively merge content from linked files and replace the
+     corresponding `[[Wiki]]` links.
+
+4. **View Results**
+
+   - The current file will be updated with merged content.
+   - A notice will show the number of files merged and any missing links.
+
+---
+
+## 🔹 Plugin Settings
+
+| Setting                        | Description                                        | Default       |
+| ------------------------------ | -------------------------------------------------- | ------------- |
+| **Delete Merged Source Files** | Whether to delete source files after merging       | false         |
+| **Merge Separator**            | Separator inserted before and after merged content | `\n\n---\n\n` |
+
+> Example:
+>
+> - Delete Source Files: If enabled, merged files will be moved to the trash.
+> - Merge Separator: Can be any text or Markdown, e.g.,
+>   `\n\n--- Source: filename.md ---\n\n`.
+
+---
+
+## 🔹 Notes
+
+- Only merges Wiki links in the currently active file. Other files remain
+  unaffected.
+- Only `[[Wiki]]` links are removed after merging; `[text](...)` links are
+  preserved.
+- It is recommended to back up files before performing batch merges.
+
+---
+
+## 🔹 Development & Contribution
+
+- Developed in TypeScript, with a clear structure for easy maintenance and
+  extensions.
+- Contributions are welcome via Issues or Pull Requests, e.g., for adding
+  deduplication, sorting, or more configuration options.
+
+---
+
+# 中文版本
+
 # Merge MD by Wiki Link 插件
 
 **将 Markdown 文件中的 Wiki 链接内容递归合并到当前文件的 Obsidian 插件。**
@@ -88,7 +192,3 @@
 
 - 插件使用 TypeScript 开发，结构清晰，支持扩展更多处理逻辑。
 - 欢迎提交 Issue 或 Pull Request 改进功能，例如添加去重、排序或更多配置选项。
-
----
-
----
