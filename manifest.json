@@ -1,11 +1,10 @@
 {
   "id": "merge-references-markdown-note",
-  "name": "merge-references-markdown-note",
-  "description": "merge references markdown note",
-  "author": "xuetengfei",
-  "authorUrl": "https://github.com/your-profile",
-  "main": "main.js",
+  "name": "Merge MD by Wiki Link",
+  "version": "1.0.5",
   "minAppVersion": "0.15.0",
-  "version": "1.0.5"
+  "description": "Recursively merge the content of Wiki links in Markdown files into the current file.",
+  "author": "xuetengfei",
+  "authorUrl": "https://github.com/xuetengfei",
+  "isDesktopOnly": true
 }
-
