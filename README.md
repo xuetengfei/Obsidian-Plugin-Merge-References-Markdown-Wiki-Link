@@ -113,7 +113,7 @@
 
    ```bash
    git clone <repository-url>
-   cd Obsidian-Plugin-Merge-References_副本
+   cd Obsidian-Plugin-Merge-References
    ```
 
 2. **Install dependencies**
@@ -294,7 +294,7 @@ Please feel free to submit Issues or Pull Requests.
 
    ```bash
    git clone <repository-url>
-   cd Obsidian-Plugin-Merge-References_副本
+   cd Obsidian-Plugin-Merge-References
    ```
 
 2. **安装依赖**
