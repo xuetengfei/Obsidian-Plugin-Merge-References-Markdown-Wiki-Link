@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,6 +30,19 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+      - name: Copy manifest.json to dist
+        run: cp manifest.json dist/manifest.json
+
+      - name: Verify build artifacts
+        run: |
+          echo "Checking build artifacts..."
+          ls -la dist/
+          if [ ! -f "dist/main.js" ] || [ ! -f "dist/manifest.json" ]; then
+            echo "❌ Build artifacts missing!"
+            exit 1
+          fi
+          echo "✅ All build artifacts present"
 
       - name: Extract version from manifest.json
         id: version
