@@ -53,7 +53,7 @@ export default class MergeReferencesPlugin extends Plugin {
     this.addSettingTab(new MergeReferencesSettingTab(this.app, this));
 
     // 添加工具栏图标
-    this.addRibbonIcon('merge', 'xtf222:Merge References', async () => {
+    this.addRibbonIcon('merge', 'Merge References', async () => {
       await this.mergeWikiLinks();
     });
 
