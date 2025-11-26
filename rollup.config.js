@@ -8,6 +8,7 @@ export default {
     dir: 'dist',
     format: 'cjs',
     sourcemap: true,
+    exports: 'default',
   },
   external: ['obsidian'],
   plugins: [
