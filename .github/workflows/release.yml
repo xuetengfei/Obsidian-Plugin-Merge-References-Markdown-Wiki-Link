@@ -94,5 +94,15 @@ jobs:
             dist/manifest.json
           draft: false
           prerelease: false
+          generate_release_notes: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify Release Created
+        run: |
+          echo "Verifying release was created..."
+          VERSION="${{ steps.version.outputs.version }}"
+          TAG="${{ github.ref_name }}"
+          echo "Version: $VERSION"
+          echo "Tag: $TAG"
+          echo "Release should be available at: https://github.com/${{ github.repository }}/releases/tag/$TAG"
