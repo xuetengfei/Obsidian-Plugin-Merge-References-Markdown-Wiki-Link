@@ -16,7 +16,5 @@
     "rollup-plugin-typescript2": "^0.34.1",
     "typescript": "^5.0.0"
   },
-  "dependencies": {
-    "trash": "^9.0.0"
-  }
+  "dependencies": {}
 }

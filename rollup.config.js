@@ -1,4 +1,6 @@
 import typescript from 'rollup-plugin-typescript2';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default {
   input: 'main.ts',
@@ -7,5 +9,12 @@ export default {
     format: 'cjs',
     sourcemap: true,
   },
-  plugins: [typescript()],
+  external: ['obsidian'],
+  plugins: [
+    typescript({
+      tsconfig: 'tsconfig.json',
+    }),
+    nodeResolve({ browser: true }),
+    commonjs(),
+  ],
 };

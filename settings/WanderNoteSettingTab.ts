@@ -1,7 +1,10 @@
 import { App, PluginSettingTab, Setting } from 'obsidian';
 import type MergeReferencesPlugin from '../main';
 
-export class WanderNoteSettingTab extends PluginSettingTab {
+/**
+ * 插件设置面板
+ */
+export class MergeReferencesSettingTab extends PluginSettingTab {
   plugin: MergeReferencesPlugin;
 
   constructor(app: App, plugin: MergeReferencesPlugin) {
@@ -9,6 +12,9 @@ export class WanderNoteSettingTab extends PluginSettingTab {
     this.plugin = plugin;
   }
 
+  /**
+   * 显示设置面板
+   */
   display(): void {
     const { containerEl } = this;
     containerEl.empty();
@@ -24,7 +30,7 @@ export class WanderNoteSettingTab extends PluginSettingTab {
           .onChange(async value => {
             this.plugin.settings.DeleteTheReferencedSourceFile = value;
             await this.plugin.saveSettings();
-          }),
+          })
       );
 
     new Setting(containerEl)
@@ -37,7 +43,7 @@ export class WanderNoteSettingTab extends PluginSettingTab {
           .onChange(async value => {
             this.plugin.settings.MergeSeparator = value;
             await this.plugin.saveSettings();
-          }),
+          })
       );
   }
 }
