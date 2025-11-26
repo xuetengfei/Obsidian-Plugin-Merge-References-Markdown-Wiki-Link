@@ -88,7 +88,7 @@ export default class MergeReferencesPlugin extends Plugin {
     } catch (error) {
       console.error('合并失败:', error);
 
-      let errorMessage = MESSAGES.MERGE_FAILED;
+      let errorMessage: string = MESSAGES.MERGE_FAILED;
       if (error instanceof Error) {
         errorMessage = `${MESSAGES.MERGE_FAILED}: ${error.message}`;
       }
