@@ -1,6 +1,6 @@
 {
   "name": "merge-references-markdown-note",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Obsidian Merge References markdown Plugin",
   "main": "main.js",
   "scripts": {
