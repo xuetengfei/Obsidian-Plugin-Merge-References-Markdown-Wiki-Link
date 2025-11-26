@@ -23,13 +23,31 @@ export const REGEX = {
  * 消息文本常量
  */
 export const MESSAGES = {
-  NO_ACTIVE_FILE: '未找到活动文件',
-  MERGE_SUCCESS: 'Wiki 链接合并完成！',
-  MERGE_FAILED: '合并 Wiki 链接失败！',
-  CIRCULAR_REFERENCE: '检测到循环引用',
-  FILE_READ_ERROR: '读取文件失败',
-  FILE_WRITE_ERROR: '写入文件失败',
-  TRASH_FAILED: '删除文件失败',
+  NO_ACTIVE_FILE: 'No active file found.',
+  MERGE_SUCCESS: 'Wiki links merged successfully!',
+  MERGE_FAILED: 'Failed to merge wiki links!',
+  CIRCULAR_REFERENCE: 'Circular reference detected',
+  FILE_READ_ERROR: 'Failed to read file',
+  FILE_WRITE_ERROR: 'Failed to write file',
+  TRASH_FAILED: 'Failed to delete file',
 } as const;
+
+/**
+ * 生成合并完成消息
+ * @param count - 合并的文件数量
+ * @returns 合并完成消息
+ */
+export function getMergeCompleteMessage(count: number): string {
+  return `Merged ${count} file(s)`;
+}
+
+/**
+ * 生成缺失链接消息
+ * @param count - 缺失链接数量
+ * @returns 缺失链接消息
+ */
+export function getMissingLinksMessage(count: number): string {
+  return `, ${count} link target(s) not found`;
+}
 
 

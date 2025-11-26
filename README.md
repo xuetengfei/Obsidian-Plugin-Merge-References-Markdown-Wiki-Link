@@ -1,9 +1,6 @@
-# 英文版本
+# Merge MD by Wiki Link
 
-## Merge MD by Wiki Link
-
-**An Obsidian plugin to recursively merge the content of Wiki links in Markdown
-files into the current file.**
+**An Obsidian plugin to recursively merge the content of Wiki links in Markdown files into the current file.**
 
 ---
 
@@ -31,8 +28,7 @@ files into the current file.**
 
 5. **Customizable Merge Separator**
 
-   - Insert a configurable separator before and after each merged content block
-     for clarity.
+   - Insert a configurable separator before and after each merged content block for clarity.
    - Default separator is:
 
    ```
@@ -54,15 +50,13 @@ files into the current file.**
 
 3. **Run the Merge Command**
 
-   - Open the command palette (Ctrl/Cmd + P), search for **"Merge Wiki Links"**,
-     and execute it.
-   - The plugin will recursively merge content from linked files and replace the
-     corresponding `[[Wiki]]` links.
+   - Open the command palette (Ctrl/Cmd + P), search for **"合并 Wiki 链接"** (or use the ribbon icon), and execute it.
+   - The plugin will recursively merge content from linked files and replace the corresponding `[[Wiki]]` links.
 
 4. **View Results**
 
    - The current file will be updated with merged content.
-   - A notice will show the number of files merged and any missing links.
+   - A notice will show the number of files merged and any missing links (e.g., "Merged 3 file(s), 1 link target(s) not found").
 
 ---
 
@@ -76,27 +70,109 @@ files into the current file.**
 > Example:
 >
 > - Delete Source Files: If enabled, merged files will be moved to the trash.
-> - Merge Separator: Can be any text or Markdown, e.g.,
->   `\n\n--- Source: filename.md ---\n\n`.
+> - Merge Separator: Can be any text or Markdown, e.g., `\n\n--- Source: filename.md ---\n\n`.
 
 ---
 
 ## 🔹 Notes
 
-- Only merges Wiki links in the currently active file. Other files remain
-  unaffected.
-- Only `[[Wiki]]` links are removed after merging; `[text](...)` links are
-  preserved.
+- Only merges Wiki links in the currently active file. Other files remain unaffected.
+- Only `[[Wiki]]` links are removed after merging; `[text](...)` links are preserved.
 - It is recommended to back up files before performing batch merges.
+- Image files (jpg, jpeg, png, gif, bmp, svg, webp) are automatically excluded from merging.
 
 ---
 
 ## 🔹 Development & Contribution
 
-- Developed in TypeScript, with a clear structure for easy maintenance and
-  extensions.
-- Contributions are welcome via Issues or Pull Requests, e.g., for adding
-  deduplication, sorting, or more configuration options.
+### Project Structure
+
+```
+.
+├── main.ts                      # Plugin entry point
+├── src/
+│   ├── constants.ts            # Constants (regex, messages)
+│   └── merge-references.ts    # Core merge logic (functional style)
+├── settings/
+│   └── WanderNoteSettingTab.ts # Settings UI
+├── dist/                       # Build output
+├── package.json
+├── tsconfig.json
+└── rollup.config.js
+```
+
+### Tech Stack
+
+- **TypeScript** - Type-safe development
+- **Rollup** - Module bundling
+- **Obsidian API** - Plugin framework
+
+### Development Setup
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd Obsidian-Plugin-Merge-References_副本
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Development mode** (watch mode)
+
+   ```bash
+   pnpm run dev
+   ```
+
+4. **Build for production**
+
+   ```bash
+   pnpm run build
+   ```
+
+### Code Architecture
+
+The plugin follows a **functional programming paradigm**:
+
+- **Core logic** (`src/merge-references.ts`): Pure functions for merging logic
+- **Constants** (`src/constants.ts`): Centralized constants and message helpers
+- **Plugin class** (`main.ts`): Minimal OOP wrapper required by Obsidian API
+- **Settings** (`settings/WanderNoteSettingTab.ts`): Settings UI component
+
+### Key Features of the Codebase
+
+- ✅ **Type-safe**: Full TypeScript with strict mode
+- ✅ **Functional style**: Core logic uses pure functions instead of classes
+- ✅ **Error handling**: Comprehensive error handling with user-friendly messages
+- ✅ **Code organization**: Clear separation of concerns
+- ✅ **Documentation**: JSDoc comments for all public functions
+- ✅ **Constants extraction**: All messages and regex patterns in constants file
+- ✅ **File caching**: Optimized file reading with caching mechanism
+
+### Contributing
+
+Contributions are welcome! Here are some areas for improvement:
+
+- Add deduplication of merged content
+- Add sorting options for merged content
+- Support for batch processing multiple files
+- Preview mode before merging
+- Undo functionality
+- More configuration options
+
+Please feel free to submit Issues or Pull Requests.
+
+---
+
+## 🔹 Author
+
+**xuetengfei**
+
+- GitHub: [@xuetengfei](https://github.com/xuetengfei)
 
 ---
 
@@ -112,8 +188,7 @@ files into the current file.**
 
 1. **递归合并 Wiki 链接内容**
 
-   - 自动扫描当前 Markdown 文件中的 `[[Wiki]]` 链接，将目标文件内容插入到当前文
-     件中。
+   - 自动扫描当前 Markdown 文件中的 `[[Wiki]]` 链接，将目标文件内容插入到当前文件中。
    - 支持多层嵌套链接，递归合并引用的文件内容。
 
 2. **清理 Wiki 链接**
@@ -154,13 +229,13 @@ files into the current file.**
 
 3. **运行合并命令**
 
-   - 在命令面板（Ctrl/Cmd + P）搜索 **“合并 Wiki 链接”** 并执行。
+   - 在命令面板（Ctrl/Cmd + P）搜索 **"合并 Wiki 链接"** 并执行，或点击工具栏图标。
    - 插件会递归合并文件内容并替换对应的 `[[Wiki]]` 链接。
 
 4. **查看结果**
 
    - 当前文件内容被更新，Wiki 链接被替换为对应内容。
-   - 弹窗提示已合并的文件数量以及缺失链接。
+   - 弹窗提示已合并的文件数量以及缺失链接（例如："Merged 3 file(s), 1 link target(s) not found"）。
 
 ---
 
@@ -185,10 +260,97 @@ files into the current file.**
 - 仅合并当前激活文件中的 Wiki 链接，其他文件不受影响。
 - 只删除 `[[Wiki]]` 链接，原本的 Markdown 链接 `[文本](...)` 保留。
 - 建议在批量操作前备份文件，避免误删或合并错误。
+- 图片文件（jpg, jpeg, png, gif, bmp, svg, webp）会自动排除，不参与合并。
 
 ---
 
 ## 🔹 开发与贡献
 
-- 插件使用 TypeScript 开发，结构清晰，支持扩展更多处理逻辑。
-- 欢迎提交 Issue 或 Pull Request 改进功能，例如添加去重、排序或更多配置选项。
+### 项目结构
+
+```
+.
+├── main.ts                      # 插件入口文件
+├── src/
+│   ├── constants.ts            # 常量定义（正则表达式、消息文本）
+│   └── merge-references.ts    # 核心合并逻辑（函数式风格）
+├── settings/
+│   └── WanderNoteSettingTab.ts # 设置界面
+├── dist/                       # 构建输出目录
+├── package.json
+├── tsconfig.json
+└── rollup.config.js
+```
+
+### 技术栈
+
+- **TypeScript** - 类型安全的开发
+- **Rollup** - 模块打包工具
+- **Obsidian API** - 插件框架
+
+### 开发环境设置
+
+1. **克隆仓库**
+
+   ```bash
+   git clone <repository-url>
+   cd Obsidian-Plugin-Merge-References_副本
+   ```
+
+2. **安装依赖**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **开发模式**（监听文件变化）
+
+   ```bash
+   pnpm run dev
+   ```
+
+4. **构建生产版本**
+
+   ```bash
+   pnpm run build
+   ```
+
+### 代码架构
+
+插件采用**函数式编程范式**：
+
+- **核心逻辑** (`src/merge-references.ts`): 纯函数实现合并逻辑
+- **常量定义** (`src/constants.ts`): 集中管理常量和消息辅助函数
+- **插件类** (`main.ts`): 符合 Obsidian API 要求的最小 OOP 包装
+- **设置界面** (`settings/WanderNoteSettingTab.ts`): 设置 UI 组件
+
+### 代码特性
+
+- ✅ **类型安全**: 完整的 TypeScript 严格模式
+- ✅ **函数式风格**: 核心逻辑使用纯函数而非类
+- ✅ **错误处理**: 完善的错误处理机制，提供用户友好的错误消息
+- ✅ **代码组织**: 清晰的职责分离
+- ✅ **文档注释**: 所有公共函数都有 JSDoc 注释
+- ✅ **常量提取**: 所有消息和正则表达式都在常量文件中
+- ✅ **文件缓存**: 优化的文件读取机制，带缓存功能
+
+### 贡献指南
+
+欢迎贡献代码！以下是一些可以改进的方向：
+
+- 添加合并内容的去重功能
+- 添加合并内容的排序选项
+- 支持批量处理多个文件
+- 合并前的预览模式
+- 撤销功能
+- 更多配置选项
+
+欢迎提交 Issue 或 Pull Request。
+
+---
+
+## 🔹 作者
+
+**xuetengfei**
+
+- GitHub: [@xuetengfei](https://github.com/xuetengfei)

@@ -1,6 +1,11 @@
 import { App, Notice, TFile } from 'obsidian';
 import { MergeReferencesSettings } from '../main';
-import { REGEX, MESSAGES } from './constants';
+import {
+  REGEX,
+  MESSAGES,
+  getMergeCompleteMessage,
+  getMissingLinksMessage,
+} from './constants';
 
 /**
  * 合并上下文接口
@@ -228,9 +233,9 @@ export async function mergeReferences(
     await deleteMergedFiles(context, activeFile.path);
 
     // 显示结果通知
-    let msg = `已合并 ${context.processedPaths.size} 个文件内容`;
+    let msg = getMergeCompleteMessage(context.processedPaths.size);
     if (context.missing.length) {
-      msg += `，未找到 ${context.missing.length} 个链接目标`;
+      msg += getMissingLinksMessage(context.missing.length);
     }
     new Notice(msg);
   } catch (error) {
