@@ -176,6 +176,12 @@ Please feel free to submit Issues or Pull Requests.
 
 ---
 
+## 🔹 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
 # 中文版本
 
 # Merge MD by Wiki Link 插件
@@ -354,3 +360,9 @@ Please feel free to submit Issues or Pull Requests.
 **xuetengfei**
 
 - GitHub: [@xuetengfei](https://github.com/xuetengfei)
+
+---
+
+## 🔹 许可证
+
+本项目采用 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件。
